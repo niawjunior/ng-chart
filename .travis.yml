@@ -21,7 +21,7 @@ script:
 deploy:
   provider: pages
   skip_cleanup: true
-  github_token: d1f81f76ac9a93555e25a9f722a0b6f4150b8ad4
+  github_token: $GITHUB_TOKEN
   local_dir: dist/ng-chart
   on:
     branch: master
