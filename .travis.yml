@@ -8,16 +8,21 @@ branches:
   only:
   - master
 
+before_script:
+  - npm install -g @angular/cli
+  - npm install -g @angular/core
+
 cache:
   directories:
     - node_modules
 
 install:
-  - npm install -g yarn
+  - npm install
 
 script:
-  - yarn lint
-  - yarn build --base-href /ng-chart/
+  - ng lint
+  - ng build --prod --base-href https://niawjunior.github.io/ng-chart/
+  
 deploy:
   provider: pages
   skip_cleanup: true
