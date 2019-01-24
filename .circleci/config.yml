@@ -8,7 +8,7 @@ jobs:
       - run: npm install
       - run: bundle install
       - run: bundle exec jekyll build
-       - run: |
+      - run: |
         sudo mv /usr/local/lib/ruby/gems/2.4.0/specifications/{default/,}bundler-1.16.0.gemspec
         sudo gem uninstall bundler -a -x
         sudo gem install bundler --version 1.15.4
