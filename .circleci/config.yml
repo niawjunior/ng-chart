@@ -1,9 +1,6 @@
 version: 2
 jobs:
-  dependencies:
-  pre:
-   - gem install bundler -v 1.14.5
-   
+
   deploy:
     docker:
       - image: circleci/ruby:2.4.3-node-browsers
