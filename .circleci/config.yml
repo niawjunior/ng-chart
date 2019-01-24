@@ -3,7 +3,7 @@ jobs:
   build:
     branches:
       ignore:
-        - gh-page
+        - master
     docker:
       # specify the version you desire here
       - image: circleci/node:10.11-browsers
@@ -11,7 +11,7 @@ jobs:
     working_directory: ~/repo
     environment:
       - SOURCE_BRANCH: master
-      - TARGET_BRANCH: gh-pages
+      - TARGET_BRANCH: master
       - TERM: xterm
     steps:
       - checkout
