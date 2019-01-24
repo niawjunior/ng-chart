@@ -20,7 +20,7 @@ jobs:
             - "9d:2d:19:e3:23:f5:19:02:2d:ac:2b:2c:3e:ba:ab:d0"
       # Download and cache dependencies
       - run: npm install
-      
+
       - restore_cache:
           keys:
           - v1-dependencies-{{ checksum "package.json" }}
@@ -34,9 +34,6 @@ jobs:
       
       # run lint!
       - run: npm run lint:lib
-
-      # run lib unit tests!
-      - run: npm run test:lib
 
       # run build lib!
       - run: npm run build:lib
