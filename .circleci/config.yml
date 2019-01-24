@@ -45,7 +45,7 @@ jobs:
       # run build
       - run: npm run build:gh
 
-      # deploy to GH page
-      - deploy:
-          name: Deploy
-          command: bash ./deploy.sh
+      # # deploy to GH page
+      # - deploy:
+      #     name: Deploy
+      #     command: bash ./deploy.sh
