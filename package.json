@@ -4,10 +4,19 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "serve": "npm run build:lib && npm run start",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "ci": "npm run ci:lib",
+    "ci:lib": "npm run lint:lib && npm run build:lib",
+    "lint:lib": "ng lint ng-chart --fix",
+    "build:lib": "ng build ng-chart",
+    "build:app:ng-chart": "npm run build:app",
+    "build:app": "ng build --prod",
+    "build:gh": "ng build --configuration=gh-pages --deploy-url /ng-chart/ --base-href /ng-chart/",
+    "build:prod": "ng build --configuration=production"
   },
   "private": true,
   "dependencies": {
