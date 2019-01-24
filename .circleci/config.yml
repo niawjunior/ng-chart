@@ -22,7 +22,7 @@ jobs:
       - run:
         name: install
         command: npm install
-        
+
       - restore_cache:
           keys:
           - v1-dependencies-{{ checksum "package.json" }}
@@ -36,7 +36,6 @@ jobs:
       
       # run lint!
       - run: npm run lint:lib
-      - run: npm run lint:app:ng-chart
 
       # run lib unit tests!
       - run: npm run test:lib
