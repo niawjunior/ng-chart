@@ -41,7 +41,6 @@ export class MapChartComponent implements OnInit {
     // Series for United States map
     const usaSeries = chart.series.push(new am4maps.MapPolygonSeries());
     usaSeries.geodata = am4geodata_usaLow;
-
     const polygonTemplate = usaSeries.mapPolygons.template;
     polygonTemplate.tooltipText = '{name}';
     polygonTemplate.fill = chart.colors.getIndex(1);
