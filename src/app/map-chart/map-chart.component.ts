@@ -46,7 +46,7 @@ export class MapChartComponent implements OnInit {
     homeButton.insertBefore(chart.zoomControl.plusButton);
 
     // Center on the groups by default
-    chart.homeZoomLevel = 3.5;
+    chart.homeZoomLevel = 2.5;
     chart.homeGeoPoint = { longitude: 10, latitude: 52 };
 
     const groupData = [
