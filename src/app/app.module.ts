@@ -16,6 +16,7 @@ import { TableModule } from 'primeng/table';
 import { PaginatorModule } from 'primeng/paginator';
 import { SliderModule } from 'primeng/slider';
 import { MultiSelectModule } from 'primeng/multiselect';
+import { BarchartVerticalComponent } from './barchart-vertical/barchart-vertical.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +26,8 @@ import { MultiSelectModule } from 'primeng/multiselect';
     MapChartComponent,
     BarChartComponent,
     DatatableComponent,
-    PrimengTableComponent
+    PrimengTableComponent,
+    BarchartVerticalComponent
   ],
   imports: [
     BrowserModule,
