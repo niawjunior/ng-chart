@@ -1,47 +1,37 @@
 version: 2
 jobs:
   build:
-    branches:
-      ignore:
-        - gh-page
     docker:
-      # specify the version you desire here
-      - image: circleci/node:10.11-browsers
-      
+    - image: circleci/node:10.11-browsers
     working_directory: ~/repo
     environment:
-      - SOURCE_BRANCH: master
-      - TARGET_BRANCH: master
-      - TERM: xterm
+    - SOURCE_BRANCH: master
+    - TARGET_BRANCH: master
+    - TERM: xterm
     steps:
-      - checkout
-      - add_ssh_keys:
-          fingerprints:
-            - "9d:2d:19:e3:23:f5:19:02:2d:ac:2b:2c:3e:ba:ab:d0"
-      # Download and cache dependencies
-      - run: npm install
-
-      - restore_cache:
-          keys:
-          - v1-dependencies-{{ checksum "package.json" }}
-          # fallback to using the latest cache if no exact match is found
-          - v1-dependencies-
-
-      - save_cache:
-          paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
-      
-      # run lint!
-      - run: npm run lint:lib
-
-      # run build lib!
-      - run: npm run build:lib
-  
-      # run build
-      - run: npm run build:gh
-
-      # deploy to GH page
-      - deploy:
-          name: Deploy
-          command: bash ./deploy.sh
+    - checkout
+    - add_ssh_keys:
+        fingerprints:
+        - "9d:2d:19:e3:23:f5:19:02:2d:ac:2b:2c:3e:ba:ab:d0"
+    - restore_cache:
+        keys:
+        - v1-dependencies-{{ checksum "package.json" }}
+        - v1-dependencies-
+    - run: npm ci
+    - save_cache:
+        paths:
+        - node_modules
+        key: v1-dependencies-{{ checksum "package.json" }}
+    - run: npm run build:gh
+    - deploy:
+        name: Deploy
+        command: bash ./deploy.sh
+workflows:
+  version: 2
+  workflow:
+    jobs:
+    - build:
+        filters:
+          branches:
+            ignore:
+            - gh-page
