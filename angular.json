@@ -66,6 +66,9 @@
           "configurations": {
             "production": {
               "browserTarget": "ng-chart:build:production"
+            },
+            "gh-pages": {
+              "browserTarget": "ng-chart:build:gh-pages"
             }
           }
         },
