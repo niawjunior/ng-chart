@@ -49,7 +49,7 @@ export class PieChartComponent implements OnInit {
 
     // Add a legend
     chart.legend = new am4charts.Legend();
-
+    chart.legend.position = 'right';
     chart.data = [{
       'country': 'Lithuania',
       'litres': 501.9

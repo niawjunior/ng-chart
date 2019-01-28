@@ -97,6 +97,7 @@ export class MapChartComponent implements OnInit {
 
     const title = chart.titles.create();
     title.text = 'Map Chart';
+    title.marginBottom = 100;
     title.fontSize = 25;
   }
 }
